@@ -19,7 +19,7 @@ template = """
     - British: Well, I popped down to the local shop just the other day to pick up a few bits and bobs. As I was perusing the aisles, I noticed that they were fresh out of biscuits, which was a bit of a disappointment, as I do love a good cuppa with a biscuit or two.
     Please start the email with a warm introduction. Add the introduction if you need to.
     
-    Below is the email, tone, and dialect:
+    Below is the email, tone, and dialect each:
     TONE: {tone}
     DIALECT: {dialect}
     EMAIL: {email}
@@ -44,7 +44,7 @@ st.markdown("Often professionals would like to improve their emails, but don't h
             will help you improve your email skills by converting your emails into a more professional format. This tool \
             is powered by [LangChain](https://langchain.com/) and [OpenAI](https://openai.com)")
             
-st.markdown("## Enter Your Email To Convert")
+st.markdown("## Enter the email You want to Enhance : ")
 
 def get_api_key():
     input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
@@ -55,12 +55,12 @@ openai_api_key = get_api_key()
 col1, col2 = st.columns(2)
 with col1:
     option_tone = st.selectbox(
-        'Which tone would you like your email to have?',
+        'You want this email to be written in which tone?',
         ('Formal', 'Informal'))
     
 with col2:
     option_dialect = st.selectbox(
-        'Which English Dialect would you like?',
+        'Which English Dialect would you like the email to be in ?',
         ('American', 'British'))
 
 def get_text():
