@@ -6,6 +6,9 @@ import os
 load_dotenv()
 
 openai_api_key = os.getenv('openai')
+# Disable Streamlit onboarding prompt
+os.environ["STREAMLIT_NO_INTEGRITY_WARNING"] = "true"
+os.environ["STREAMLIT_EMAIL"] = "your@email.com"
 
 template = """
     Below is an email that may be poorly worded.
