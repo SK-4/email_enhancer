@@ -1,6 +1,11 @@
 import streamlit as st
 from langchain import PromptTemplate
 from langchain.llms import OpenAI
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+openai_api_key = os.getenv('openai')
 
 template = """
     Below is an email that may be poorly worded.
@@ -39,18 +44,16 @@ def load_LLM(openai_api_key):
     return llm
 
 st.set_page_config(page_title="Globalize Email", page_icon=":robot:")
-st.header("Globalize Text")
+st.header("Email Enhancer")
 st.markdown("Often professionals would like to improve their emails, but don't have the skills to do so. \n\n This tool \
             will help you improve your email skills by converting your emails into a more professional format. This tool \
             is powered by [LangChain](https://langchain.com/) and [OpenAI](https://openai.com)")
             
 st.markdown("## Enter the email You want to Enhance : ")
 
-def get_api_key():
-    input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
-    return input_text
-
-openai_api_key = get_api_key()
+# def get_api_key():
+#     # input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
+#     return key
 
 col1, col2 = st.columns(2)
 with col1:
