@@ -24,8 +24,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Set Streamlit environment variable
-        run: echo "STREAMLIT_EMAIL=''" >> $GITHUB_ENV
-
       - name: Run Streamlit app
-        run: streamlit run main.py
+        run: |
+          echo | streamlit run main.py | expect -c 'expect "Email:" { send "\n" }'
